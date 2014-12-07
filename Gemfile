@@ -40,7 +40,11 @@ gem 'devise'
 gem 'puma'
 gem 'pg'
 
+gem 'haml'
+gem 'haml-rails'
+
 group :development, :test do
+  gem 'quiet_assets'
   gem 'pry-rails'
   gem "factory_girl_rails", "~> 4.0"
 end

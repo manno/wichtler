@@ -19,13 +19,13 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+de:
   email_validated: "Your email has been validated. We will announce your partner shortly."
   invalid_token: "Token invalid or expired."
   validation_mailer:
     validate_mail:
-      subject: "Wichtler: Validate your Mail"
+      subject: "Wichtler: Email Validierung"
   notification_mailer:
     your_partner:
-      subject: "Secret Santa Assignment"
+      subject: "Dein Wichtel Partner"
 
