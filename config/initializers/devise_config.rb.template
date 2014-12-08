@@ -1,4 +1,0 @@
-Devise.setup do |config|
-  config.secret_key = '94b2150219822562cadf43a66f1d95fa20d345b4fbad9655fd0df67a6fe475a901fe32e24cfba22ca2d7b9f97148e5b58a361ce020ce267deadf66778756bf9a'
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
-end

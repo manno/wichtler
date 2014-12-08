@@ -26,12 +26,5 @@ vendor/gems/
 public/assets
 
 # Ignore secret tokens and configs
-config/database.yml
-config/initializers/action_mailer.rb
-config/initializers/device_config.rb
-config/initializers/devise_secret_token.rb
-config/initializers/secret_token.rb
-config/initializers/wichtler.rb
-config/secrets.yml
 db/seeds_live.rb
 db/seeds_dev.rb

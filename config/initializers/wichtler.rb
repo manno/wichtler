@@ -1,5 +1,5 @@
 Wichtler::Application.configure do
   config.wichtler = OpenStruct.new(
-    from_email: 'test@example.com'
+    from_email: ENV['FROM_EMAIL']
   )
 end

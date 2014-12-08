@@ -1,12 +1,8 @@
 language: ruby
 rvm:
   - 2.1.1
-before_install:
-  - cp config/database.yml.template config/database.yml
-  - cp config/initializers/action_mailer.rb.template config/initializers/action_mailer.rb
-  - cp config/initializers/wichtler.rb.template config/initializers/wichtler.rb
-  - cp config/initializers/devise_config.rb.template config/initializers/devise_config.rb
-  - cp config/secrets.yml.template config/secrets.yml
+env:
+  - DEVISE_SECRET_KEY=1234 DEVISE_MAIL_SENDER=test@localhost VHOST=localhost VHOST_PROTOCOL=http FROM_EMAIL=root@localhost SECRET_KEY_BASE=4321
 script:
   - bundle exec rake db:setup
   - bundle exec rake

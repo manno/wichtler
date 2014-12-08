@@ -13,16 +13,17 @@ ruby 2.1.3
 
 ### Deployment Instructions
 
-Copy and edit all configuration templates.
+Configure the mail system and the hostname of the application.
 
-* cp config/database.yml{.template,}
 * cp config/initializers/action_mailer.rb{.template,}
 * cp config/initializers/wichtler.rb{.template,}
-* cp config/initializers/device_config.rb{.template,}
-* cp config/secrets.yml{.template,}
 
 Be sure to replace all secret tokens with randomly generated ones, i.e. by calling `rake secret`.
-Configure your mail system and the hostname of the application.
+Set these environment variables:
+
+  SECRET_KEY_BASE=1234
+  DEVISE_SECRET_KEY=1234
+  DEVISE_MAIL_SENDER=root@localhost
 
 ### Database Creation
 
