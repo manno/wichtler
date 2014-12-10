@@ -6,7 +6,6 @@ Wichtler::Application.configure do
     password: ENV['MAIL_PASSWORD'],
     authentication: ENV['MAIL_AUTH_TYPE'],
     enable_starttls_auto: true,
-    ssl: false,
-    tls: true
+    openssl_verify_mode: 'none'
   }
 end
