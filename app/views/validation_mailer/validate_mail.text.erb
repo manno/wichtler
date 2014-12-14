@@ -1,6 +1,6 @@
-Hallo #{@person.name},
+Hallo <%= @person.name %>,
 
 
 Bitte bestätige deine Teilnahme am Wichteln in dem du folgende URL aufrufst:
 
-= public_confirm_url(@token.code)
+<%= public_confirm_url(@token.code) %>
