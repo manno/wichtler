@@ -13,11 +13,6 @@ ruby 2.1.3
 
 ### Deployment Instructions
 
-Configure the mail system and the hostname of the application.
-
-* cp config/initializers/action_mailer.rb{.template,}
-* cp config/initializers/wichtler.rb{.template,}
-
 Be sure to replace all secret tokens with randomly generated ones, i.e. by calling `rake secret`.
 Set these environment variables:
 
