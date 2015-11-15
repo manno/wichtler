@@ -1,7 +1,7 @@
 class Token < ActiveRecord::Base
   belongs_to :person
-  validate :code, presence: true, uniqueness: true
-  validate :person, presence: true
+  validates :code, presence: true, uniqueness: true
+  validates :person, presence: true
 
   def self.for(person)
     t = Token.new person: person
