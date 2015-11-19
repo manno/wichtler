@@ -16,6 +16,8 @@ class Person < ActiveRecord::Base
   scope :active, -> { where(active: true) }
   scope :assignable, -> { where(active: true, state: 'validated') }
   scope :notifiable, -> { where(active: true, state: 'assigned') }
+  scope :without_partner, -> { where(partner_id: nil) }
+  scope :with_partner, ->(person) { where(partner_id: person.id) }
 
   class << self
 
@@ -24,13 +26,13 @@ class Person < ActiveRecord::Base
       partner.update_attributes(partner: person)
     end
 
-    # only persons without existing partners are allowed here
+    # only persons without existing partners are allowed here, or pre-existing partners
     def possible_partners(person)
-      allowed = [nil]
-      allowed << person.partner.id if person.partner
-      allowed << Person.where(partner_id: person.id).to_a
-      possible = Person.where(id: allowed.flatten)
-      possible
+      partners = []
+      partners += Person.with_partner(person)
+      partners += Person.without_partner
+      partners -= [person]
+      partners
     end
 
     # assign a random partner to every person
