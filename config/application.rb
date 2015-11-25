@@ -8,6 +8,10 @@ Bundler.require(*Rails.groups)
 
 module Wichtler
   class Application < Rails::Application
+    LOG_LEVEL = -> {
+      ([(ENV['LOG_LEVEL'] || ::Rails.application.config.log_level).to_s.upcase, 'INFO'] & %w(DEBUG INFO WARN ERROR FATAL UNKNOWN)).compact.first
+    }
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -26,5 +30,12 @@ module Wichtler
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    if ENV['RAILS_STDOUT_LOGGING'].present?
+      config.logger = Logger.new(STDOUT)
+      config.logger.level = Logger.const_get(LOG_LEVEL.call)
+      config.log_level = LOG_LEVEL.call
+      STDOUT.sync = true
+    end
   end
 end
